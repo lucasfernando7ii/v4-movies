@@ -15,5 +15,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#app{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 </style>
