@@ -1,6 +1,6 @@
 <template>
   <div id="meus-filmes">
-     <h1>Meus Filmes</h1> 
+     <h1>Meus Filmes salvos: </h1> 
      <span v-if="filmes.length <= 0">
        Você nao possui nenhum filme salvo :(
      </span>
@@ -50,11 +50,11 @@ export default {
 
 <style scoped>
 #meus-filmes{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+
+  background-color: #fdfdfd;
+   margin: 100px;
+   padding: 45px; 
+   border-radius: 35px;
 }
 
 ul{

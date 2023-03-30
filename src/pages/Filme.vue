@@ -74,14 +74,15 @@ export default {
           display: flex;
           justify-content: center;
           flex-direction: column;
-          max-width: 900px;
+          max-width: 800px;
       }
 
       h2{
         color: #FFF;
+        font-size: 35px;
         margin-bottom: 0px;
         background: blueviolet;
-        padding: 15px;
+        padding: 35px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
       }

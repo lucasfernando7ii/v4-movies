@@ -1,5 +1,7 @@
 <template>
   <div id="erro">
+    <br/>
+  
     <h1> Ops, parece que essa página não existe :( </h1>
   </div>
 </template>
@@ -10,6 +12,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+#erro{
+        background-color: #fdfdfd;
+        margin: 100px;
+        padding: 25px; 
+        border-radius: 25px;
+}
 
 </style>

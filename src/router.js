@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Filme from './pages/Filme'
 import Salvos from './pages/Salvos'
 import Erro from './pages/Erro'
+import Contato from './pages/Contato'
 
 const routes = [
     {
@@ -25,6 +26,11 @@ const routes = [
         path: "/:pathMatch(.*)*", 
         component: Erro,
         name: 'Erro',
+    },
+    {
+        path: '/contato',
+        component: Contato,
+        name: 'Contact'
     },
 ];
 

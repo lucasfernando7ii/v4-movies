@@ -56,14 +56,14 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: #ffffff;
-        margin: 15px;
+        margin: 60px;
         padding: 15px; 
         border-radius: 5px;
     }
 
     .lista-filmes strong{
         padding-bottom: 15px;
-        font-size: 20px;
+        font-size: 30px;
     }
 
     img{
@@ -73,9 +73,9 @@ export default {
 
     .lista-filmes article a{
         text-decoration: none;
-        color: #FFF;
+        color: #fdfdfd;
         font-size: 25px;
-        background-color: blueviolet;
+        background-color:  rgb(53, 49, 104);
         width: 100%;
         height: 40px;
         margin-top: -30px;
