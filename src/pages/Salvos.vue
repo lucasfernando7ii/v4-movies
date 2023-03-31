@@ -51,22 +51,18 @@ export default {
 <style scoped>
 
 
-#meus-filmes{
 
+#meus-filmes{
   background-color: #fdfdfd;
   color: black;
    margin: 100px;
    padding: 45px; 
    border-radius: 35px;
 }
-
 ul{
-
   padding: 0;
 }
-
 ul li {
-
   padding: 0;
   list-style: none;
   min-width: 600px;
@@ -74,14 +70,11 @@ ul li {
   align-items: center;
   justify-content: space-between;
 }
-
   span{
     font-size: 25px;
   }
-
   button{
     margin-left: 10px;
   }
-
 
 </style>

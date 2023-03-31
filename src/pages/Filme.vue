@@ -71,10 +71,11 @@ export default {
 <style scoped>
 
   .container{
+         height: 900px;
           display: flex;
           justify-content: center;
           flex-direction: column;
-          max-width: 800px;
+          max-width:800px;
       }
 
       h2{
