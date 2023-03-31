@@ -35,7 +35,7 @@ export default {
 
 #header a{
   text-decoration: none;
-  font-size: 35px;
+  font-size: 28px;
   color: rgb(250, 250, 250);
   cursor: pointer;
   font-weight: bold;

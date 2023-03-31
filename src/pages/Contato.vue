@@ -1,25 +1,18 @@
 <template>
   <div id="contato">
-
-
-
-<h2>MC</h2>
-<button type="button" class="btn btn-primary">Primary</button>
+    <font-awesome-icon icon="fa-light fa-envelope" />
+    <h2>MC</h2>
   </div>
 </template>
 <script>
-export default {
-
-}
-
- 
+export default {};
 </script>
 
 <style scoped>
-#contato{
-        background-color: #fdfdfd;
-        margin: 100px;
-        padding: 45px; 
-        border-radius: 35px;
+#contato {
+  background-color: #fdfdfd;
+  margin: 100px;
+  padding: 45px;
+  border-radius: 35px;
 }
 </style>

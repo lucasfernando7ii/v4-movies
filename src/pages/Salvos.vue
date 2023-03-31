@@ -8,10 +8,10 @@
        <li v-for="filme in filmes" :key="filme.id">
          <span>{{filme.nome}}</span>
          <div>
-          <button>
-            <router-link :to="`/filme/${filme.id}`">Ver detalhes</router-link>
+          <button class="btn btn-outline-primary">
+            <router-link :to="`/filme/${filme.id}`" style="text-decoration:none">Ver detalhes</router-link>
           </button>
-          <button @click="excluir(filme.id)">Excluir</button>
+          <button @click="excluir(filme.id)"  type="button" class="btn btn-outline-danger">Excluir</button>
          </div>
        </li>
      </ul>
@@ -49,19 +49,24 @@ export default {
 </script>
 
 <style scoped>
+
+
 #meus-filmes{
 
   background-color: #fdfdfd;
+  color: black;
    margin: 100px;
    padding: 45px; 
    border-radius: 35px;
 }
 
 ul{
+
   padding: 0;
 }
 
 ul li {
+
   padding: 0;
   list-style: none;
   min-width: 600px;
