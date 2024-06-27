@@ -5,6 +5,7 @@ import Salvos from './pages/Salvos'
 import Erro from './pages/Erro'
 import Contato from './pages/Contato'
 
+
 const routes = [
     {
         path: '/',
@@ -32,6 +33,7 @@ const routes = [
         component: Contato,
         name: 'Contact'
     },
+
 ];
 
 const router = createRouter({

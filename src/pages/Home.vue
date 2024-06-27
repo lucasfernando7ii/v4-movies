@@ -51,6 +51,7 @@ export default {
     }
 
     .lista-filmes article{
+
         display: flex;
         flex-direction: column;
         justify-content: center;
