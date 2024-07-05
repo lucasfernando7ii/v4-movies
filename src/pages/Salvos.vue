@@ -1,6 +1,6 @@
 <template>
   <div id="meus-filmes">
-     <h1>Meus Filmes salvos: </h1> 
+     <h1>Meus Filmes salvo: </h1> 
      <span v-if="filmes.length <= 0">
        Você nao possui nenhum filme salvo :(
      </span>
