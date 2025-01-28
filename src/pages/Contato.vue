@@ -3,7 +3,7 @@
     <font-awesome-icon icon="fa-light fa-envelope" />
     <div class="container">
 
-      <h1>Minhas redes sociais:</h1>
+      <h1>Redes sociais:</h1>
       <hr />
       <div class="row">
         <div class="col-sm-4 social-buttons">
