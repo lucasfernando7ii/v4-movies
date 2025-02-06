@@ -61,7 +61,7 @@ export default {
       }
       filmes.push(this.filme)
       localStorage.setItem('myFilme', JSON.stringify(filmes))
-      alert('Filme salvo com sucesso!')
+      alert('Filme salvo com sucesso!!')
     }
   }
 
