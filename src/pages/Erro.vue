@@ -2,7 +2,7 @@
   <div id="erro">
     <br/>
   
-    <h1> Ops, parece que essa página não existe... :(  </h1>
+    <h1> Ops, parece que essa página não existe.... :(  </h1>
   </div>
 </template>
 
