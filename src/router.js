@@ -12,11 +12,11 @@ const routes = [
         component: SuitPay,
         name: 'SuitPay',
     },
-    {
+  /*  {
         path: '/',
         component: Home,
         name: 'Home',
-    },
+    },*/
     {
         path: '/filme/:id',
         component: Filme,
