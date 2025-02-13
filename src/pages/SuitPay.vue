@@ -5,7 +5,6 @@
           <p>
               Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
           </p>
-          <!-- Botão sem redirecionamento -->
           <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
       </div>
   </div>
@@ -16,8 +15,22 @@ export default {
   name: 'Suitpay',
   methods: {
       handleButtonClick() {
-          alert('Volte sempre!'); // Exibe um alerta ao clicar no botão
+          this.$router.push('/'); // Redireciona para a página inicial
       },
+  },
+  mounted() {
+      // Remove o cabeçalho e o rodapé
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      if (header) header.style.display = 'none';
+      if (footer) footer.style.display = 'none';
+  },
+  beforeUnmount() {
+      // Restaura o cabeçalho e o rodapé ao sair da página
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      if (header) header.style.display = 'block';
+      if (footer) footer.style.display = 'block';
   },
 };
 </script>
