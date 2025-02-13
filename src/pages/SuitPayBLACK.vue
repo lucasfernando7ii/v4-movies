@@ -59,18 +59,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff; /* Fundo branco */
-  color: #333333; /* Texto escuro */
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
 .container {
   max-width: 600px;
-  padding: 40px;
-  background-color: #f9f9f9; /* Fundo cinza claro */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 0 20px rgba(61, 204, 51, 0.5); /* Sombra verde */
 }
 
 h1 {
@@ -82,21 +82,19 @@ h1 {
 p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #555555; /* Texto cinza escuro */
 }
 
 .btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   background-color: #3dcc33; /* Verde SuitPay */
-  color: #ffffff; /* Texto branco */
+  color: #000; /* Texto preto */
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
   cursor: pointer; /* Adiciona cursor de ponteiro */
-  border: none; /* Remove borda padrão do botão */
 }
 
 .btn:hover {
