@@ -8,15 +8,15 @@ import SuitPay from './pages/SuitPay'
 
 const routes = [
     {
-        path: '/suitpay',
+        path: '/',
         component: SuitPay,
         name: 'SuitPay',
     },
-  /*  {
-        path: '/',
+    {
+        path: '/home',
         component: Home,
         name: 'Home',
-    },*/
+    },
     {
         path: '/filme/:id',
         component: Filme,
