@@ -59,7 +59,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff; /* Fundo branco */
+  background: linear-gradient(135deg, #3dcc33 0%, #ffffff 100%); /* Gradiente verde e branco */
   color: #333333; /* Texto escuro */
   font-family: Arial, sans-serif;
   text-align: center;
@@ -68,9 +68,10 @@ export default {
 .container {
   max-width: 800px; /* Largura maior */
   padding: 60px; /* Padding maior */
-  background-color: #f9f9f9; /* Fundo cinza claro */
+  background-color: #ffffff; /* Fundo branco */
   border-radius: 15px; /* Bordas mais arredondadas */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
+  border: 2px solid #3dcc33; /* Borda verde */
 }
 
 h1 {
