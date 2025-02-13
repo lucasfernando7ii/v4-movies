@@ -1,7 +1,7 @@
 <template>
   <header id ="header">
     <button>
-    <router-link to="/" exact>v4Host </router-link>
+    <router-link to="/" exact>v4-Movies </router-link>
     </button>
 <button>
   <router-link to="/favoritos" class="my-favorites">Favoritos</router-link>
