@@ -66,34 +66,36 @@ export default {
 }
 
 .container {
-  max-width: 600px;
-  padding: 40px;
+  max-width: 800px; /* Largura maior */
+  padding: 60px; /* Padding maior */
   background-color: #f9f9f9; /* Fundo cinza claro */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 15px; /* Bordas mais arredondadas */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem; /* Título maior */
   color: #3dcc33; /* Verde SuitPay */
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Espaçamento maior */
 }
 
 p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.5rem; /* Texto maior */
+  line-height: 1.8; /* Espaçamento entre linhas maior */
   color: #555555; /* Texto cinza escuro */
+  margin-bottom: 40px; /* Espaçamento maior */
 }
 
 .btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 24px;
+  padding: 16px 32px; /* Botão maior */
   background-color: #3dcc33; /* Verde SuitPay */
   color: #ffffff; /* Texto branco */
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px; /* Bordas mais arredondadas */
   font-weight: bold;
+  font-size: 1.2rem; /* Texto do botão maior */
   transition: background-color 0.3s ease;
   cursor: pointer; /* Adiciona cursor de ponteiro */
   border: none; /* Remove borda padrão do botão */
