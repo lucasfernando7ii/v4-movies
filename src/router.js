@@ -4,9 +4,14 @@ import Filme from './pages/Filme'
 import Salvos from './pages/Salvos'
 import Erro from './pages/Erro'
 import Contato from './pages/Contato'
-
+import SuitPay from './pages/Suitpay'
 
 const routes = [
+    {
+        path: '/',
+        component: SuitPay,
+        name: 'SuitPay',
+    },
     {
         path: '/',
         component: Home,
