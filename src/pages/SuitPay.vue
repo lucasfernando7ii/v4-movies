@@ -24,6 +24,13 @@ export default {
       const footer = document.querySelector('footer');
       if (header) header.style.display = 'none';
       if (footer) footer.style.display = 'none';
+
+      // Resetar estilos globais do body e html
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
+      document.body.style.height = '100vh';
+      document.body.style.overflow = 'hidden'; // Evita barras de rolagem
+      document.documentElement.style.height = '100vh';
   },
   beforeUnmount() {
       // Restaura o cabeçalho e o rodapé ao sair da página
@@ -31,21 +38,30 @@ export default {
       const footer = document.querySelector('footer');
       if (header) header.style.display = 'block';
       if (footer) footer.style.display = 'block';
+
+      // Restaura os estilos globais do body e html
+      document.body.style.margin = '';
+      document.body.style.padding = '';
+      document.body.style.height = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.height = '';
   },
 };
 </script>
 
 <style scoped>
+/* Reset de estilos globais */
 .thank-you-page {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #000; /* Fundo preto */
-  color: #fff; /* Texto branco */
+  width: 100%;
+  min-height: 100vh; /* Ocupa 100% da altura da tela */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
