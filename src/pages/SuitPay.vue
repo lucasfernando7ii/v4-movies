@@ -19,7 +19,7 @@ export default {
       },
   },
   mounted() {
-      // Remove o cabeçalho e o rodapé
+      // Remove o cabeçalho e o rodape
       const header = document.querySelector('header');
       const footer = document.querySelector('footer');
       if (header) header.style.display = 'none';
