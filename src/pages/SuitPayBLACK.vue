@@ -3,7 +3,7 @@
       <div class="container">
           <h1>Obrigado por comprar nosso produto!</h1>
           <p>
-              Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
+              77 Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
           </p>
           <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
       </div>
