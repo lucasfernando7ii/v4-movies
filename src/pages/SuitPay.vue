@@ -5,7 +5,7 @@
           <p>
               777 Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
             <div style="display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;">
-               <div style="display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;"><a href="" target="_blank" style="background-color:#000000;color:#FFF;height:48px;display:flex;align-items:center;justify-content:center;width:fit-content;padding:0 24px;border-radius:48px;">Sim eu aceito.</a><a href="" target="_blank" style="background-color:transparent;color:#404040;height:48px;width:fit-content;display:flex;align-items:center;justify-content:center;padding:0 24px;border-radius:48px;">Não, obrigado.</a></div>
+               <div style="dislay:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;"><a href="" target="_blank" style="background-color:#000000;color:#FFF;height:48px;display:flex;align-items:center;justify-content:center;width:fit-content;padding:0 24px;border-radius:48px;">Sim eu aceito.</a><a href="" target="_blank" style="background-color:transparent;color:#404040;height:48px;width:fit-content;display:flex;align-items:center;justify-content:center;padding:0 24px;border-radius:48px;">Não, obrigado.</a></div>
             </div>
             </p>
           <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
