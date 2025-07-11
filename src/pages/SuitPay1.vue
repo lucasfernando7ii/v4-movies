@@ -1,12 +1,106 @@
 <template>
   <div class="thank-you-page">
       <div class="container">
-          <h1>Obrigado por comprar nosso produto!</h1>
-          <p>
-              777 Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
-           <div style="display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;"><a href="" target="_blank" style="background-color:#000000;color:#FFF;height:48px;display:flex;align-items:center;justify-content:center;width:fit-content;padding:0 24px;border-radius:48px;">Sim eu aceito.</a><a href="" target="_blank" style="background-color:transparent;color:#404040;height:48px;width:fit-content;display:flex;align-items:center;justify-content:center;padding:0 24px;border-radius:48px;">Não, obrigado.</a></div>
-            </p>
-          <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
+<div
+        style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        border: 1px solid #e5e7eb;
+        background-color: #ffffff;
+        padding: 1rem;
+        max-width: 670px;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+            'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    "
+>
+    <img
+            src="https://checkout.homolog.suitpay.app/238/Captura-de-tela-de-2025-05-30-12-09-18.png"
+            alt="Oferta Projeto"
+            loading="lazy"
+            style="
+            margin-right: 1.5rem;
+            width: 16rem;
+            border-radius: 0.5rem;
+            max-width: 100%;
+        "
+    />
+    <div style="width: 100%;">
+        <h3
+                style="
+                font-size: 0.875rem;
+                color: #1f2937;
+                margin: 0 0 0.5rem 0;
+            "
+        >
+            Oferta Projeto
+        </h3>
+
+        <div
+                style="
+                font-size: 1rem;
+                line-height: 1.5rem;
+                font-weight: 700;
+                color: #1f2937;
+            "
+        >
+            R$ 100,00
+        </div>
+
+        <div style="margin-top: 0.5rem;">
+            <form
+                    id="form-upsell-2"
+                    method="post"
+                    action="https://suitsales.homolog.suitpay.app/api/v1/public/checkout/order_id/payUpSell/2"
+            >
+                <input
+                        type="hidden"
+                        name="_token"
+                        value="o9WrUIMDW2qollrL1ZEDWzVjBze4ApkbOuVrsQW7"
+                        autocomplete="off"
+                >
+                <button
+                        type="submit"
+                        style="
+                        background-color: #00000000 !important;
+                        margin-top: 0.5rem;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        border-radius: 0.5rem;
+                        padding: 1rem;
+                        text-align: center;
+                        font-size: 1.125rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        transition: all 0.5s ease-in-out;
+                        color: #000000 !important;
+                        border: none;
+                        cursor: pointer;
+                        font-family: inherit;"
+                >
+                    Sim eu aceito.
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = new URL(window.location.href);
+            const orderId = url.searchParams.get("order_id");
+            const form = document.getElementById("form-upsell-2");
+            const currentAction = form.getAttribute("action");
+            const newAction = currentAction.replace("order_id", orderId);
+            form.setAttribute('action', newAction);
+        })
+    </script>
+</div>
+
       </div>
   </div>
 </template>
