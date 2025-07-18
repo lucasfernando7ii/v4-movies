@@ -5,37 +5,23 @@
       <p>
         Agradecemos imensamente por confiar na SuitPay. Seu apoio é fundamental para continuarmos oferecendo soluções inovadoras e de qualidade. Caso precise de ajuda, nossa equipe está à disposição!
       </p>
+      <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
 
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 0.5rem;
-          border: 1px solid #e5e7eb;
-          background-color: #ffffff;
-          padding: 1rem;
-          max-width: 670px;
-          font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-              'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-              'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-        "
-      >
-        <img
-          src="https://checkout.homolog.suitpay.app/238/Captura-de-tela-de-2025-05-30-12-09-18.png"
-          alt="Oferta Projeto"
-          loading="lazy"
-          style="
-            margin-right: 1.5rem;
-            width: 16rem;
-            border-radius: 0.5rem;
-            max-width: 100%;
-          "
-        />
-        <div style="width: 100%;">
-          <h3 style="font-size: 0.875rem; color: #1f2937; margin: 0 0 0.5rem 0;">Oferta Projeto</h3>
-          <div style="font-size: 1rem; line-height: 1.5rem; font-weight: 700; color: #1f2937;">R$ 100,00</div>
-          <div style="margin-top: 0.5rem;">
+      <!-- BLOCO DE UPSELL -->
+      <div class="upsell-card">
+        <div class="upsell-content">
+          <figure class="upsell-image">
+            <img
+              src="https://checkout.homolog.suitpay.app/238/Captura-de-tela-de-2025-05-30-12-09-18.png"
+              alt="Oferta Projeto"
+              loading="lazy"
+            />
+          </figure>
+
+          <div class="upsell-details">
+            <h3>Oferta Projeto</h3>
+            <p class="upsell-price">R$ 100,00</p>
+
             <form
               id="form-upsell-2"
               method="post"
@@ -46,39 +32,24 @@
                 name="_token"
                 value="o9WrUIMDW2qollrL1ZEDWzVjBze4ApkbOuVrsQW7"
                 autocomplete="off"
-              >
-              <button
-                type="submit"
-                style="
-                  background-color: #00000000 !important;
-                  margin-top: 0.5rem;
-                  width: 100%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 0.5rem;
-                  border-radius: 0.5rem;
-                  padding: 1rem;
-                  text-align: center;
-                  font-size: 1.125rem;
-                  font-weight: 600;
-                  text-transform: uppercase;
-                  transition: all 0.5s ease-in-out;
-                  color: #000000 !important;
-                  border: none;
-                  cursor: pointer;
-                  font-family: inherit;"
-              >
-                Sim eu aceito.
+              />
+              <button type="submit" class="upsell-accept">
+                Sim, eu aceito essa oferta especial!
               </button>
             </form>
+
+            <a
+              href="#"
+              class="buttonRejectUpSellTemplate upsell-reject"
+            >
+              Não, eu recuso essa oferta
+            </a>
           </div>
         </div>
       </div>
-
-      <button class="btn" @click="handleButtonClick">Voltar à Página Inicial</button>
     </div>
   </div>
+    
 </template>
 
 <script>
@@ -89,8 +60,8 @@ export default {
       this.$router.push('/');
     },
   },
-  mounted() {
-    // Manipulação de URL e form
+mounted() {
+
     const url = new URL(window.location.href);
     const orderId = url.searchParams.get("order_id");
     const form = document.getElementById("form-upsell-2");
@@ -100,18 +71,78 @@ export default {
       form.setAttribute('action', newAction);
     }
 
-    // Remove header/footer e aplica reset global
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-    if (header) header.style.display = 'none';
-    if (footer) footer.style.display = 'none';
+  // Botão de abrir/fechar modal
+  const chatButton = document.getElementById("chat-button");
+  const chatModal = document.getElementById("chat-modal");
 
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.body.style.height = '100vh';
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.height = '100vh';
-  },
+  if (chatButton && chatModal) {
+    chatButton.addEventListener("click", () => {
+      chatModal.style.display = chatModal.style.display === "none" ? "flex" : "none";
+    });
+  }
+
+  // Função para gerar sessionId (UUID simplificado)
+  function generateSessionId() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  // Pega ou cria sessionId no localStorage
+  let sessionId = localStorage.getItem('sessionId');
+  if (!sessionId) {
+    sessionId = generateSessionId();
+    localStorage.setItem('sessionId', sessionId);
+  }
+
+  // Envio de mensagens para o agent do n8n
+  const input = document.getElementById("chat-input");
+  const messages = document.getElementById("chat-messages");
+
+  input?.addEventListener("keypress", async (e) => {
+    if (e.key === "Enter") {
+      const message = input.value.trim();
+      if (!message) return;
+
+      messages.innerHTML += `<div><strong>Você:</strong> ${message}</div>`;
+      input.value = '';
+
+      try {
+        const res = await fetch("https://n8n.suitpay.app/webhook/f8d5f425-562b-47ae-901a-7c71aaa5ac2a/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "sendMessage",
+            sessionId: sessionId,
+            chatInput: message
+          }),
+        });
+
+        const data = await res.json();
+        messages.innerHTML += `<div><strong>SuitBot:</strong> ${data.output}</div>`;
+      } catch (err) {
+        messages.innerHTML += `<div style="color:red;">Erro ao contactar o bot</div>`;
+      }
+
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+
+  // Estilos extras
+  document.body.style.margin = '0';
+  document.body.style.padding = '0';
+  document.body.style.height = '100vh';
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.height = '100vh';
+
+  const header = document.querySelector('header');
+  const footer = document.querySelector('footer');
+  if (header) header.style.display = 'none';
+  if (footer) footer.style.display = 'none';
+},
+
   beforeUnmount() {
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -128,7 +159,99 @@ export default {
 </script>
 
 <style scoped>
-/* Reset de estilos globais */
+
+.upsell-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+.upsell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upsell-image {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.upsell-image img {
+  border-radius: 0.5rem;
+  position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.upsell-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upsell-details h3 {
+  font-size: 1rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+.upsell-price {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.upsell-accept {
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background-color: #78f79e;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upsell-reject {
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: #000;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upsell-reject:hover {
+  color: #ef4444;
+}
+
 .thank-you-page {
   margin: 0;
   padding: 0;
@@ -141,6 +264,7 @@ export default {
   color: #333333;
   font-family: Arial, sans-serif;
   text-align: center;
+  position: relative;
 }
 
 .container {
@@ -182,5 +306,34 @@ p {
 
 .btn:hover {
   background-color: #2fa329;
+}
+
+/* Estilo do botão de ajuda */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* Estilo do chat modal */
+.chat-modal {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 </style>
